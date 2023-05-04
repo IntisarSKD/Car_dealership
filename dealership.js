@@ -7,14 +7,16 @@ const Dealership = function(name, maxCars, carsInStock) {
   Dealership.prototype.countCarsInStock = function() {
     return this.carsInStock.length;
   }
-  
+
   Dealership.prototype.addCarToStock = function(car) {
-    if (this.countCarsInStock() < this.maxCars) {
+    if (this.carsInStock.length >= this.maxCars) {
+      return false; 
+    } else {
       this.carsInStock.push(car);
       return true;
     }
-    return false;
-  }
+  };
+  
   
   Dealership.prototype.getCarManufacturers = function() {
     const manufacturers = [];
